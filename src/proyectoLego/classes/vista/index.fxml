@@ -4,12 +4,12 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 
-<AnchorPane fx:id="AnchorPaneBackground" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="586.0" prefWidth="580.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="AnchorPaneBackground" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="586.0" prefWidth="580.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.ControladorIndex">
    <children>
       <AnchorPane fx:id="AnchorPaneNav" prefHeight="586.0" prefWidth="200.0">
          <children>
             <Button fx:id="buttonMRU" layoutX="66.0" layoutY="149.0" mnemonicParsing="false" text="MRU" />
-            <Button fx:id="buttonMRUA" layoutX="57.0" layoutY="300.0" mnemonicParsing="false" text="MRUA" />
+            <Button fx:id="buttonMRUA" layoutX="75.0" layoutY="301.0" mnemonicParsing="false" text="MRUA" />
          </children>
       </AnchorPane>
    </children>

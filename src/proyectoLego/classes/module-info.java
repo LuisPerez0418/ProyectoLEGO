@@ -12,4 +12,10 @@ module proyectoLego {
     requires javafx.media;
     requires javafx.swing;
     requires javafx.web;
+    
+    opens vista to javafx.fxml;
+    exports vista;
+    
+    opens controlador to javafx.fxml;
+    exports controlador;
 }
