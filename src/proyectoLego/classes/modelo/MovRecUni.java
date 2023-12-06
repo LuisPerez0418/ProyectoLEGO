@@ -1,6 +1,5 @@
 package modelo;
 
-import java.time.LocalDate;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.FloatProperty;
 import javafx.beans.property.SimpleDoubleProperty;
