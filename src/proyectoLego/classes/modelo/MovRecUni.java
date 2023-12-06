@@ -1,7 +1,10 @@
 package modelo;
 
+import java.time.LocalDate;
 import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.FloatProperty;
 import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleFloatProperty;
 
 public class MovRecUni {
 
@@ -9,9 +12,9 @@ public class MovRecUni {
     private DoubleProperty posFinal = new SimpleDoubleProperty();
     private DoubleProperty tiempoInicial = new SimpleDoubleProperty();
     private DoubleProperty tiempoFinal = new SimpleDoubleProperty();
-    private DoubleProperty velocidad = new SimpleDoubleProperty();
+    private FloatProperty velocidad = new SimpleFloatProperty();
 
-    public MovRecUni(double tiempoInicial, double tiempoFinal, double velocidad,
+    public MovRecUni(double tiempoInicial, double tiempoFinal, float velocidad,
             double posInicial, double posFinal) {
         setTiempoInicial(tiempoInicial);
         setTiempoFinal(tiempoFinal);
@@ -28,15 +31,15 @@ public class MovRecUni {
         setPosFinal(posFinal);
     }
 
-    public MovRecUni(double tiempoInicial, double velocidad, double posInicial,
-            double posFinal, int aceleracion) {
+    public MovRecUni(double tiempoInicial, float velocidad, double posInicial,
+            double posFinal) {
         setTiempoInicial(tiempoInicial);
         setPosInicial(posInicial);
         setPosFinal(posFinal);
         setVelocidad(velocidad);
     }
 
-    public MovRecUni(double velocidad, double posInicial, double posFinal) {
+    public MovRecUni(float velocidad, double posInicial, double posFinal) {
         setPosInicial(posInicial);
         setPosFinal(posFinal);
         setVelocidad(velocidad);
@@ -103,11 +106,11 @@ public class MovRecUni {
         return tiempoInicial.get();
     }
 
-    public void setVelocidad(double velocidad) {
+    public void setVelocidad(float velocidad) {
         this.velocidad.set(velocidad);
     }
 
-    public DoubleProperty velocidadProperty() {
+    public FloatProperty velocidadProperty() {
         return velocidad;
     }
 
