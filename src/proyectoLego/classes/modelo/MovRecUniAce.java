@@ -1,6 +1,5 @@
 package modelo;
 
-//@author elias
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 
@@ -15,10 +14,12 @@ public class MovRecUniAce {
     private DoubleProperty velocidadFinal = new SimpleDoubleProperty();
     private DoubleProperty aceleracion = new SimpleDoubleProperty();
 
+    public MovRecUniAce() {
+    }
+    
     public MovRecUniAce(double tiempoInicial, double tiempoFinal,
             double posInicial, double posFinal, double aceleracion,
             double velocidadInicial, double velocidadFinal) {
-        
         setTiempoInicial(tiempoInicial);
         setTiempoFinal(tiempoFinal);
         setPosInicial(posInicial);
@@ -26,10 +27,6 @@ public class MovRecUniAce {
         setAcelaracion(aceleracion);
         setVelocidadInicial(velocidadInicial);
         setVelocidadFinal(velocidadFinal);
-    }
-    
-    public MovRecUniAce( ) {
-      
     }
 
     //----- Métodos getters y setters-----//
