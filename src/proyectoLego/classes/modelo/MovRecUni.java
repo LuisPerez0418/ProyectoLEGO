@@ -1,9 +1,7 @@
 package modelo;
 
 import javafx.beans.property.DoubleProperty;
-import javafx.beans.property.FloatProperty;
 import javafx.beans.property.SimpleDoubleProperty;
-import javafx.beans.property.SimpleFloatProperty;
 
 public class MovRecUni {
 
@@ -11,34 +9,12 @@ public class MovRecUni {
     private DoubleProperty posFinal = new SimpleDoubleProperty();
     private DoubleProperty tiempoInicial = new SimpleDoubleProperty();
     private DoubleProperty tiempoFinal = new SimpleDoubleProperty();
-    private FloatProperty velocidad = new SimpleFloatProperty();
+    private DoubleProperty velocidad = new SimpleDoubleProperty();
 
-    public MovRecUni(double tiempoInicial, double tiempoFinal, float velocidad,
+    public MovRecUni(double tiempoInicial, double tiempoFinal, double velocidad,
             double posInicial, double posFinal) {
         setTiempoInicial(tiempoInicial);
         setTiempoFinal(tiempoFinal);
-        setPosInicial(posInicial);
-        setPosFinal(posFinal);
-        setVelocidad(velocidad);
-    }
-
-    public MovRecUni(double tiempoInicial, double tiempoFinal, double posInicial,
-            double posFinal) {
-        setTiempoInicial(tiempoInicial);
-        setTiempoFinal(tiempoFinal);
-        setPosInicial(posInicial);
-        setPosFinal(posFinal);
-    }
-
-    public MovRecUni(double tiempoInicial, float velocidad, double posInicial,
-            double posFinal) {
-        setTiempoInicial(tiempoInicial);
-        setPosInicial(posInicial);
-        setPosFinal(posFinal);
-        setVelocidad(velocidad);
-    }
-
-    public MovRecUni(float velocidad, double posInicial, double posFinal) {
         setPosInicial(posInicial);
         setPosFinal(posFinal);
         setVelocidad(velocidad);
@@ -105,17 +81,16 @@ public class MovRecUni {
         return tiempoInicial.get();
     }
 
-    public void setVelocidad(float velocidad) {
+    public void setVelocidad(double velocidad) {
         this.velocidad.set(velocidad);
     }
 
-    public FloatProperty velocidadProperty() {
+    public DoubleProperty velocidadProperty() {
         return velocidad;
     }
 
     //----- Métodos para calcular ------//
-    public double calcularVelocidad(double tiempoInicial, double tiempoFinal,
-            double posInicial, double posFinal) {
+    public double calcularVelocidad() {
         return (getPosFinal() - getPosInicial()) / (getTiempoFinal() - getTiempoInicial());
     }
 
