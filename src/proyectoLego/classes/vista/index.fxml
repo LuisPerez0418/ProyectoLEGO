@@ -3,14 +3,14 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane fx:id="AnchorPaneBackground" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="586.0" prefWidth="580.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.ControladorIndex">
+<AnchorPane fx:id="AnchorPaneBackground" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="586.0" prefWidth="610.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.ControladorIndex">
    <children>
-      <AnchorPane fx:id="AnchorPaneNav" prefHeight="586.0" prefWidth="200.0">
+      <AnchorPane fx:id="AnchorPaneNav" prefHeight="94.0" prefWidth="610.0">
          <children>
-            <Button fx:id="buttonMRU" layoutX="66.0" layoutY="149.0" mnemonicParsing="false" text="MRU" />
-            <Button fx:id="buttonMRUA" layoutX="75.0" layoutY="301.0" mnemonicParsing="false" text="MRUA" />
+            <Button fx:id="buttonMRU" layoutX="57.0" layoutY="41.0" mnemonicParsing="false" onMouseClicked="#cargarMRU" text="MRU" />
+            <Button fx:id="buttonTiroParabolico" layoutX="237.0" layoutY="41.0" mnemonicParsing="false" onMouseClicked="#cargarTiroParabolico" text="Tiro Parabolico" />
          </children>
       </AnchorPane>
+      <AnchorPane fx:id="AnchorPaneVistas" layoutX="-8.0" layoutY="96.0" prefHeight="491.0" prefWidth="619.0" />
    </children>
 </AnchorPane>

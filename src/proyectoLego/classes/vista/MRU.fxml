@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane fx:id="AnchorPaneMRU" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="514.0" prefWidth="410.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.ControladorIndex" />
+<AnchorPane fx:id="AnchorPaneMRU" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="514.0" prefWidth="410.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.ControladorMRU">
+   <children>
+      <Label layoutX="180.0" layoutY="29.0" prefHeight="17.0" prefWidth="37.0" text="MRU" />
+      <Button fx:id="buttonHola" layoutX="166.0" layoutY="143.0" mnemonicParsing="false" text="Hola" />
+   </children>
+</AnchorPane>

@@ -9,7 +9,8 @@ public class VistaIndex extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/index.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().
+                getResource("/vista/index.fxml"));
         Parent root = loader.load();
 
         Scene scene = new Scene(root);
