@@ -11,7 +11,6 @@ public class MovRecUniAce {
     private DoubleProperty tiempoInicial = new SimpleDoubleProperty();
     private DoubleProperty tiempoFinal = new SimpleDoubleProperty();
     private DoubleProperty tiempo = new SimpleDoubleProperty();
-    private DoubleProperty velocidad = new SimpleDoubleProperty();
     private DoubleProperty velocidadInicial = new SimpleDoubleProperty();
     private DoubleProperty velocidadFinal = new SimpleDoubleProperty();
     private DoubleProperty aceleracion = new SimpleDoubleProperty();
@@ -91,7 +90,7 @@ public class MovRecUniAce {
     }
 
     public double getTiempo() {
-        return tiempoInicial.get();
+        return tiempo.get();
     }
 
     public void setTiempo(double tiempo) {
