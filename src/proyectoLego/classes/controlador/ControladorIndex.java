@@ -1,43 +1,44 @@
 package controlador;
 
 import java.io.IOException;
+import javafx.event.Event;
 import javafx.scene.input.MouseEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
 import javafx.scene.layout.AnchorPane;
 
 public class ControladorIndex {
-    @FXML
-    private AnchorPane AnchorPaneBackground;
+ 
+  
+   @FXML
+    private Tab tabMRU;
 
     @FXML
-    private AnchorPane anchoPane;
+    private Tab tabTiroParabolico;
 
     @FXML
-    private AnchorPane AnchorPaneNav;
-    
-     @FXML
-    private AnchorPane AnchorPaneVistas;
-   
+    private TabPane tablePaneViews;
     @FXML
-    private Button buttonMRU;
-
+    private AnchorPane anchorPaneVistas;
+     
     @FXML
-    private Button buttonTiroParabolico;
-    
-      @FXML
-    void cargarMRU(MouseEvent event) throws IOException {
-        AnchorPane secondFXML = FXMLLoader.load(getClass().
-                getResource("/vista/MRU.fxml"));
-        AnchorPaneVistas.getChildren().setAll(secondFXML);
-       
+void cargarContenido(Event event) throws IOException {
+    Tab selectedTab = (Tab) event.getSource();
+    if (selectedTab == tabMRU) {
+        cargarFXML("/vista/MRU.fxml");
+    } else if (selectedTab == tabTiroParabolico) {
+        cargarFXML("/vista/TiroParabolico.fxml");
     }
-    @FXML
-    void cargarTiroParabolico(MouseEvent event)throws IOException{
-        AnchorPane secondFXML = FXMLLoader.load
-        (getClass().getResource("/vista/TiroParabolico.fxml"));
-        AnchorPaneVistas.getChildren().setAll(secondFXML);
-    }
+}
+
+private void cargarFXML(String fxmlPath) throws IOException {
+    AnchorPane content = FXMLLoader.load(getClass().getResource(fxmlPath));
+    anchorPaneVistas.getChildren().setAll(content);
+}    
+    
+ 
     
 }

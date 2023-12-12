@@ -4,50 +4,20 @@
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="759.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.ControladorPrueba">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/20.0.1" fx:controller="controlador.ControladorIndex">
   <tabs>
-    <Tab text="MRU">
-         <content>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+    <Tab fx:id="tabMRU" onSelectionChanged="#cargarContenido" text="MRU">
+      <content>
+        <AnchorPane fx:id="cargarContenido" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <TabPane layoutX="-6.0" prefHeight="266.0" prefWidth="716.0" tabClosingPolicy="UNAVAILABLE">
-                    <tabs>
-                      <Tab text="VELOCIDAD">
-                        <content>
-                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                        </content>
-                      </Tab>
-                      <Tab text="TIEMPO">
-                        <content>
-                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="171.0" prefWidth="412.0" />
-                        </content>
-                      </Tab>
-                        <Tab text="DISTANCIA">
-                          <content>
-                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                          </content>
-                        </Tab>
-                    </tabs>
-                  </TabPane>
-               </children>
-            </AnchorPane>
-         </content></Tab>
-    <Tab text="MRUA">
-         <content>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0">
-               <children>
-                  <AnchorPane prefHeight="376.0" prefWidth="759.0">
-                     <children>
-                        <TabPane prefHeight="200.0" prefWidth="759.0" tabClosingPolicy="UNAVAILABLE">
-                          <tabs>
-                            <Tab text="Untitled Tab 1" />
-                            <Tab text="Untitled Tab 2" />
-                          </tabs>
-                        </TabPane>
-                     </children>
-                  </AnchorPane>
-               </children>
-            </AnchorPane>
-         </content></Tab>
+                  <AnchorPane fx:id="anchorPaneVistas" prefHeight="373.0" prefWidth="600.0" />
+               </children></AnchorPane>
+      </content>
+    </Tab>
+    <Tab fx:id="tabTiroParabolico" onSelectionChanged="#cargarContenido" text="TIRO PARABOLICO">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+      </content>
+    </Tab>
   </tabs>
 </TabPane>

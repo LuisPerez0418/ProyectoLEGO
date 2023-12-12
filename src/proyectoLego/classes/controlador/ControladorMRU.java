@@ -2,14 +2,15 @@ package controlador;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.TabPane;
 import javafx.scene.layout.AnchorPane;
 
 public class ControladorMRU {
     
-    @FXML
-    private AnchorPane AnchorPaneMRU;
+  @FXML
+    private AnchorPane anchorPaneMRU;
 
     @FXML
-    private Button buttonHola;
+    private TabPane tabMRU;
     
 }
