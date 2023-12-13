@@ -107,7 +107,7 @@ public class ModeloCaidaLibre {
 
     }
 
-    //----- Metodos -----//
+    //----- Métodos -----//
     
     public double calcularAltura(){
         return (getVelocidadFinal()/2)*getTiempo();
