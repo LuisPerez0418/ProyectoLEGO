@@ -1,10 +1,9 @@
 package modelo;
 
-//@author elias
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 
-public class MovParabolico {
+public class ModeloMovParabolico {
 
     private DoubleProperty velocidadInicial = new SimpleDoubleProperty();
     private DoubleProperty velocidadInicialEnX = new SimpleDoubleProperty();
@@ -16,12 +15,9 @@ public class MovParabolico {
     private DoubleProperty posicionInicialEnY = new SimpleDoubleProperty();
     private DoubleProperty angulo = new SimpleDoubleProperty();
 
-    public MovParabolico() {
+    public ModeloMovParabolico() {
     }
 
-    /*public MovParabolico() {
-        
-    }*/
     //----- Métodos getters y setters-----//
     public double getVelocidadInicial() {
         return velocidadInicial.get();
@@ -144,17 +140,16 @@ public class MovParabolico {
     }
 
     //----- Métodos para calcular ------//
-    // -- Tiempos -- //
+    //----- Tiempos -----//
     public double calcularTiempoSubida() {
         return (getVelocidadInicialEnY() / getGravedad());
-
     }
 
     public double calcularTiempoVuelo() {
         return calcularTiempoSubida() * 2;
     }
 
-    // -- Distancias -- //
+    //----- Distancias -----//
     public double calcularAlcanceHorizontalMaximo() {
         return (Math.pow(getVelocidadInicial(), 2) * Math.sin(2 * getAngulo())) / getGravedad();
     }
@@ -172,7 +167,7 @@ public class MovParabolico {
     }
    
 
-    // -- Velocidades -- //
+    //----- Velocidades ----//
     public double calcularVelocidad() {
         return Math.sqrt(Math.pow(getVelocidadInicialEnX(), 2) + Math.pow(getVelocidadInicialEnY(), 2));
     }
@@ -185,11 +180,11 @@ public class MovParabolico {
         return getVelocidadInicial() * Math.sin(getAngulo());
     }
     
-    // -- Angulo -- //
+    //----- Angulo -----//
     public double calcularAngulo() {
         return Math.asin(getVelocidadInicialEnY() / getVelocidadInicial());
     }
-    
+
     public double calcularAngulo(int a) {
         return Math.acos(getVelocidadInicialEnX() / getVelocidadInicial());
     }
