@@ -2,7 +2,7 @@ package modelo.convertidor;
 
 public class ModeloLongitud {
 
-    //----- métodos de conversión -----//
+    //----- Métodos de conversión -----//
     public double centimetroMetro(double dato) {
         return dato / 100;
     }
@@ -15,7 +15,7 @@ public class ModeloLongitud {
         return dato * 1609;
     }
 
-    //----- métodos para mostrar conversión -----//
+    //----- Métodos para mostrar conversión -----//
     public void mostrarCentimetroMetro(double dato) {
         double resultado;
         resultado = dato / 100;
