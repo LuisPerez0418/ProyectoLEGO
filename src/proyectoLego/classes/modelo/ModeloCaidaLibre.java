@@ -28,7 +28,7 @@ public class ModeloCaidaLibre {
 
     }
 
-    //----- setters and getters -----//
+    //----- Métodos setters and getters -----//
     public double getVelocidadInicial() {
         return velocidadInicial.get();
     }
@@ -107,8 +107,7 @@ public class ModeloCaidaLibre {
 
     }
 
-    //----- Métodos -----//
-    
+    //----- Métodos para calcular -----//
     public double calcularAltura(){
         return (getVelocidadFinal()/2)*getTiempo();
         
