@@ -5,41 +5,39 @@ import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Tab;
-import javafx.scene.control.TabPane;
 import javafx.scene.layout.AnchorPane;
 
 public class ControladorIndex {
 
-    //----- instanciación del FXML -----//
-    
     @FXML
     private Tab tabCaidaLibre;
     @FXML
     private Tab tabMRU;
     @FXML
     private Tab tabTiroParabolico;
-    @FXML
-    private TabPane tablePaneViews;
-    @FXML
-    private AnchorPane anchorPaneVistas;
 
-    //----- Métodos FXML -----//
+    @FXML
+    private AnchorPane anchorPaneVistasMRU;
+    @FXML
+    private AnchorPane anchorPaneVistasTiroParabolico;
+    @FXML
+    private AnchorPane anchorPaneVistasCaidaLibre;
+
     @FXML
     void cargarContenido(Event event) throws IOException {
         Tab selectedTab = (Tab) event.getSource();
+
         if (selectedTab == tabMRU) {
-            cargarFXML("/vista/MRU.fxml");
+            cargarFXML("/Vista/MRU.fxml", anchorPaneVistasMRU);
         } else if (selectedTab == tabTiroParabolico) {
-            cargarFXML("/vista/TiroParabolico.fxml");
-        } else if (selectedTab == tabCaidaLibre){
-            cargarFXML("/vista/CaidaLibre.fxml");
+            cargarFXML("/Vista/TiroParabolico.fxml", anchorPaneVistasTiroParabolico);
+        } else if (selectedTab == tabCaidaLibre) {
+            cargarFXML("/Vista/CaidaLibre.fxml", anchorPaneVistasCaidaLibre);
         }
-        
     }
 
-    private void cargarFXML(String fxmlPath) throws IOException {
+    private void cargarFXML(String fxmlPath, AnchorPane anchorPane) throws IOException {
         AnchorPane content = FXMLLoader.load(getClass().getResource(fxmlPath));
-        anchorPaneVistas.getChildren().setAll(content);
+        anchorPane.getChildren().setAll(content);
     }
-
 }
