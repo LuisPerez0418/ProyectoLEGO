@@ -11,6 +11,9 @@ import javafx.scene.layout.AnchorPane;
 public class ControladorIndex {
 
     //----- instanciación del FXML -----//
+    
+    @FXML
+    private Tab tabCaidaLibre;
     @FXML
     private Tab tabMRU;
     @FXML
@@ -28,7 +31,10 @@ public class ControladorIndex {
             cargarFXML("/vista/MRU.fxml");
         } else if (selectedTab == tabTiroParabolico) {
             cargarFXML("/vista/TiroParabolico.fxml");
+        } else if (selectedTab == tabCaidaLibre){
+            cargarFXML("/vista/CaidaLibre.fxml");
         }
+        
     }
 
     private void cargarFXML(String fxmlPath) throws IOException {
