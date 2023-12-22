@@ -11,6 +11,10 @@ public class ModeloMovRecUni {
     private DoubleProperty tiempoFinal = new SimpleDoubleProperty();
     private DoubleProperty velocidad = new SimpleDoubleProperty();
 
+    public ModeloMovRecUni() {
+        
+    }
+    
     public ModeloMovRecUni(double tiempoInicial, double tiempoFinal, double velocidad,
             double posInicial, double posFinal) {
         setTiempoInicial(tiempoInicial);
