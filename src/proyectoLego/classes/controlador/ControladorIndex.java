@@ -14,7 +14,18 @@ public class ControladorIndex {
     @FXML
     private Tab tabMRU;
     @FXML
-    private Tab tabTiroParabolico;
+    private Tab tabMRUA;
+    @FXML
+    private Tab tabCaidaLibre;
+    @FXML
+    private Tab tabDisparoVertical;
+    @FXML
+    private Tab tabMovParabolico;
+    @FXML
+    private Tab tabMCU;
+    @FXML
+    private Tab tabMCUA;
+
     @FXML
     private TabPane tablePaneViews;
     @FXML
@@ -26,8 +37,8 @@ public class ControladorIndex {
         Tab selectedTab = (Tab) event.getSource();
         if (selectedTab == tabMRU) {
             cargarFXML("/vista/MRU.fxml");
-        } else if (selectedTab == tabTiroParabolico) {
-            cargarFXML("/vista/TiroParabolico.fxml");
+        } else if (selectedTab == tabMRUA) {
+            cargarFXML("/vista/MRUA.fxml");
         }
     }
 
