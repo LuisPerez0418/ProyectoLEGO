@@ -1,7 +1,10 @@
 package controlador;
 
+import java.net.URL;
+import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -9,23 +12,27 @@ import javafx.scene.control.TabPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import modelo.ModeloMovRecUni;
+import modelo.convertidor.ModeloLongitud;
+import modelo.convertidor.ModeloUnidades;
 
-public class ControladorMRU {
+public class ControladorMRU implements Initializable {
 
     private modelo.ModeloMovRecUni mru;
+    ModeloUnidades unidades = new ModeloUnidades();
+    
     @FXML
     private AnchorPane anchorPaneMRU;
     @FXML
     private TabPane tabMRU;
     //----- FXML calcular velocidad -----//
     @FXML
-    private ComboBox<?> comboPosFInal;
+    private ComboBox<String> comboPosFinal;
     @FXML
-    private ComboBox<?> comboPosInicial;
+    private ComboBox<String> comboPosInicial;
     @FXML
-    private ComboBox<?> comboTiempoFinal;
+    private ComboBox<String> comboTiempoFinal;
     @FXML
-    private ComboBox<?> comboTiempoInicial;
+    private ComboBox<String> comboTiempoInicial;
 
     @FXML
     private Label labelPosFinal;
@@ -57,7 +64,7 @@ public class ControladorMRU {
         double posInicial;
         double posFinal;
         double tiempoInicial;
-        double tiempoFinal; 
+        double tiempoFinal;
         try {
             tiempoFinal = Double.parseDouble(textTiempoFinal.getText());
             tiempoInicial = Double.parseDouble(textTiempoInicial.getText());
@@ -85,14 +92,14 @@ public class ControladorMRU {
     private Button buttonLimpiarD;
 
     @FXML
-    private ComboBox<?> comboVelocidadD;
+    private ComboBox<String> comboVelocidadD;
     @FXML
-    private ComboBox<?> comboPosInicialD;
+    private ComboBox<String> comboPosInicialD;
     @FXML
-    private ComboBox<?> comboTiempoFinalD;
+    private ComboBox<String> comboTiempoFinalD;
     @FXML
-    private ComboBox<?> comboTiempoInicialD;
-    
+    private ComboBox<String> comboTiempoInicialD;
+
     @FXML
     private Label labelPosFinalD;
     @FXML
@@ -103,7 +110,7 @@ public class ControladorMRU {
     private Label labelTiempoFinalD;
     @FXML
     private Label labelTiempoInicialD;
-    
+
     @FXML
     private TextField textVelocidadD;
     @FXML
@@ -147,12 +154,12 @@ public class ControladorMRU {
     private Button buttonLimpiarT;
 
     @FXML
-    private ComboBox<?> comboPosFinalT;
+    private ComboBox<String> comboPosFinalT;
     @FXML
-    private ComboBox<?> comboPosInicialT;
+    private ComboBox<String> comboPosInicialT;
     @FXML
-    private ComboBox<?> comboVelocidadT;
-    
+    private ComboBox<String> comboVelocidadT;
+
     @FXML
     private Label labelPosFinalT;
     @FXML
@@ -161,14 +168,13 @@ public class ControladorMRU {
     private Label labelRespuestaT;
     @FXML
     private Label labelVelocidadT;
-    
+
     @FXML
     private TextField textPosFinalT;
     @FXML
     private TextField textPosInicialT;
     @FXML
     private TextField textVelocidadT;
-
 
     @FXML
     void setOnActionButtonCalcularTiempo(ActionEvent event) {
@@ -179,7 +185,7 @@ public class ControladorMRU {
             posInicial = Double.parseDouble(textPosInicialT.getText());
             posFinal = Double.parseDouble(textPosFinalT.getText());
             velocidad = Double.parseDouble(textVelocidadT.getText());
-            
+
             mru = new ModeloMovRecUni(0, 0, velocidad, posInicial, posFinal);
 
             labelRespuesta.setText(mru.calcularTiempo() + " m/s");
@@ -194,4 +200,20 @@ public class ControladorMRU {
         textPosFinalT.setText("");
         labelRespuestaT.setText("");
     }
+
+    //----- inicializador de los comboBox -----//
+    public void initialize(URL url, ResourceBundle rb) {
+        comboPosInicial.getItems().addAll(unidades.getValorLongitud());
+        comboPosInicialD.getItems().addAll(unidades.getValorLongitud());
+        comboPosInicialT.getItems().addAll(unidades.getValorLongitud());
+        comboPosFinal.getItems().addAll(unidades.getValorLongitud());
+        comboPosFinalT.getItems().addAll(unidades.getValorLongitud());
+        comboVelocidadD.getItems().addAll(unidades.getValorVelocidad());
+        comboVelocidadT.getItems().addAll(unidades.getValorVelocidad());
+        comboTiempoInicial.getItems().addAll(unidades.getValorTiempo());
+        comboTiempoInicialD.getItems().addAll(unidades.getValorTiempo());
+        comboTiempoFinal.getItems().addAll(unidades.getValorTiempo());
+        comboTiempoFinalD.getItems().addAll(unidades.getValorTiempo());
+    }
+
 }
