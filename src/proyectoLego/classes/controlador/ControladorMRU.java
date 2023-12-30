@@ -77,15 +77,9 @@ public class ControladorMRU implements Initializable {
             tiempoFinal = Double.parseDouble(textTiempoFinal.getText());
             cmbTiempoInicial = comboTiempoInicial.getSelectionModel().getSelectedItem();
             cmbTiempoFinal = comboTiempoFinal.getSelectionModel().getSelectedItem();
-            System.out.println(posFinal);
-            System.out.println(posInicial);
-            System.out.println(tiempoInicial);
-            System.out.println(tiempoFinal);
-
             mru = new ModeloMovRecUni(mt.convertirTiempo(tiempoInicial, cmbTiempoInicial),
                     mt.convertirTiempo(tiempoFinal, cmbTiempoFinal),
                     0, posInicial, posFinal);
-            System.out.println(mru.calcularVelocidad() + " m/s");
             labelRespuesta.setText(mru.calcularVelocidad() + " m/s");
         } catch (Exception e) {
             System.out.println(e);
