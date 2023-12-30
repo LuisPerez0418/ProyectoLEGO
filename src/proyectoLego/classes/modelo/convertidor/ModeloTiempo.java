@@ -2,6 +2,10 @@ package modelo.convertidor;
 
 public class ModeloTiempo {
     
+    public ModeloTiempo(){
+        
+    }
+    
     //----- Métodos de conversión -----//
     public double minutoSegundo(double dato){
         return dato * 60;
@@ -23,4 +27,16 @@ public class ModeloTiempo {
         resultado = dato * 3600;
         System.out.println(dato + " * 3600 = " + resultado);
     }
+    
+    //----- método condicional sistema internacional -----//
+    public double convertirTiempo(double dato, String unidad){
+        double valor;
+        valor = dato;
+        return switch (unidad) {
+            case "min" -> minutoSegundo(valor);
+            case "h" -> horaSegundo(valor);
+            default -> valor;
+        };
+    }
+    
 }

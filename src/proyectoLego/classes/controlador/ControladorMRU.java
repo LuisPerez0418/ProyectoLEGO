@@ -12,14 +12,15 @@ import javafx.scene.control.TabPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import modelo.ModeloMovRecUni;
-import modelo.convertidor.ModeloLongitud;
+import modelo.convertidor.ModeloTiempo;
 import modelo.convertidor.ModeloUnidades;
 
 public class ControladorMRU implements Initializable {
 
-    private modelo.ModeloMovRecUni mru;
-    ModeloUnidades unidades = new ModeloUnidades();
-    
+    private modelo.ModeloMovRecUni mru = new ModeloMovRecUni();
+    private ModeloTiempo mt = new ModeloTiempo();
+    private ModeloUnidades unidades = new ModeloUnidades();
+
     @FXML
     private AnchorPane anchorPaneMRU;
     @FXML
@@ -62,18 +63,32 @@ public class ControladorMRU implements Initializable {
     @FXML
     void setOnActionButtonCalcularVelocidad(ActionEvent event) {
         double posInicial;
+        String cmbPosInicial;
         double posFinal;
+        String cmbPosFinal;
         double tiempoInicial;
+        String cmbTiempoInicial;
         double tiempoFinal;
+        String cmbTiempoFinal;
         try {
-            tiempoFinal = Double.parseDouble(textTiempoFinal.getText());
-            tiempoInicial = Double.parseDouble(textTiempoInicial.getText());
             posFinal = Double.parseDouble(textPosFinal.getText());
             posInicial = Double.parseDouble(textPosInicial.getText());
-            mru = new ModeloMovRecUni(tiempoInicial, tiempoFinal, 0, posInicial, posFinal);
+            tiempoInicial = Double.parseDouble(textTiempoInicial.getText());
+            tiempoFinal = Double.parseDouble(textTiempoFinal.getText());
+            cmbTiempoInicial = comboTiempoInicial.getSelectionModel().getSelectedItem();
+            cmbTiempoFinal = comboTiempoFinal.getSelectionModel().getSelectedItem();
+            System.out.println(posFinal);
+            System.out.println(posInicial);
+            System.out.println(tiempoInicial);
+            System.out.println(tiempoFinal);
 
+            mru = new ModeloMovRecUni(mt.convertirTiempo(tiempoInicial, cmbTiempoInicial),
+                    mt.convertirTiempo(tiempoFinal, cmbTiempoFinal),
+                    0, posInicial, posFinal);
+            System.out.println(mru.calcularVelocidad() + " m/s");
             labelRespuesta.setText(mru.calcularVelocidad() + " m/s");
         } catch (Exception e) {
+            System.out.println(e);
         }
     }
 
