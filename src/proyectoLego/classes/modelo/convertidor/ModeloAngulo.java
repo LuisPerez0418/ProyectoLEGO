@@ -23,4 +23,5 @@ public class ModeloAngulo {
         resultado = dato * (180 / Math.PI);
         System.out.println(dato + " * 180 / π = " + resultado);
     }
+
 }

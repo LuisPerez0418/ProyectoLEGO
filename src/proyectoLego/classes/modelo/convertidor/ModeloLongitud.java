@@ -34,4 +34,14 @@ public class ModeloLongitud {
         System.out.println(dato + " * 1609 = " + resultado);
     }
 
+    //----- método condicional sistema internacional -----//
+    public double convertirLongitud(double dato, String unidad){
+        return switch (unidad) {
+            case "cm" -> centimetroMetro(dato);
+            case "km" -> kilometroMetro(dato);
+            case "mi" -> millaMetro(dato); 
+            default -> dato;
+        };
+    }
+    
 }

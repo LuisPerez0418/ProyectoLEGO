@@ -30,12 +30,10 @@ public class ModeloTiempo {
     
     //----- método condicional sistema internacional -----//
     public double convertirTiempo(double dato, String unidad){
-        double valor;
-        valor = dato;
         return switch (unidad) {
-            case "min" -> minutoSegundo(valor);
-            case "h" -> horaSegundo(valor);
-            default -> valor;
+            case "min" -> minutoSegundo(dato);
+            case "h" -> horaSegundo(dato);
+            default -> dato;
         };
     }
     

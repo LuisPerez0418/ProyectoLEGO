@@ -11,15 +11,21 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import modelo.ModeloMensaje;
 import modelo.ModeloMovRecUni;
+import modelo.convertidor.ModeloLongitud;
 import modelo.convertidor.ModeloTiempo;
 import modelo.convertidor.ModeloUnidades;
+import modelo.convertidor.ModeloVelocidad;
 
 public class ControladorMRU implements Initializable {
 
     private modelo.ModeloMovRecUni mru = new ModeloMovRecUni();
     private ModeloTiempo mt = new ModeloTiempo();
+    private ModeloLongitud ml = new ModeloLongitud();
+    private ModeloVelocidad mv = new ModeloVelocidad();
     private ModeloUnidades unidades = new ModeloUnidades();
+    private ModeloMensaje mensaje = new ModeloMensaje();
 
     @FXML
     private AnchorPane anchorPaneMRU;
@@ -63,26 +69,23 @@ public class ControladorMRU implements Initializable {
     @FXML
     void setOnActionButtonCalcularVelocidad(ActionEvent event) {
         double posInicial;
-        String cmbPosInicial;
         double posFinal;
-        String cmbPosFinal;
         double tiempoInicial;
-        String cmbTiempoInicial;
         double tiempoFinal;
-        String cmbTiempoFinal;
         try {
-            posFinal = Double.parseDouble(textPosFinal.getText());
-            posInicial = Double.parseDouble(textPosInicial.getText());
-            tiempoInicial = Double.parseDouble(textTiempoInicial.getText());
-            tiempoFinal = Double.parseDouble(textTiempoFinal.getText());
-            cmbTiempoInicial = comboTiempoInicial.getSelectionModel().getSelectedItem();
-            cmbTiempoFinal = comboTiempoFinal.getSelectionModel().getSelectedItem();
-            mru = new ModeloMovRecUni(mt.convertirTiempo(tiempoInicial, cmbTiempoInicial),
-                    mt.convertirTiempo(tiempoFinal, cmbTiempoFinal),
-                    0, posInicial, posFinal);
+            tiempoInicial = mt.convertirTiempo(Double.parseDouble(textTiempoInicial.getText()),
+                    comboTiempoInicial.getSelectionModel().getSelectedItem());
+            tiempoFinal = mt.convertirTiempo(Double.parseDouble(textTiempoFinal.getText()),
+                    comboTiempoInicial.getSelectionModel().getSelectedItem());
+            posInicial = ml.convertirLongitud(Double.parseDouble(textPosInicial.getText()),
+                    comboPosInicial.getSelectionModel().getSelectedItem());
+            posFinal = ml.convertirLongitud(Double.parseDouble(textPosFinal.getText()),
+                    comboPosFinal.getSelectionModel().getSelectedItem());
+            mru = new ModeloMovRecUni(tiempoInicial, tiempoFinal, 0, posInicial, posFinal);
+            mensaje.mostrar("Velocidad calculada. \n" + mru.calcularVelocidad() + "m/s");
             labelRespuesta.setText(mru.calcularVelocidad() + " m/s");
         } catch (Exception e) {
-            System.out.println(e);
+            mensaje.mostrarError("Debe rellenar todos los campos para continuar.");
         }
     }
 
@@ -136,14 +139,19 @@ public class ControladorMRU implements Initializable {
         double tiempoFinal;
         double tiempoInicial;
         try {
-            tiempoFinal = Double.parseDouble(textTiempoFinalD.getText());
-            tiempoInicial = Double.parseDouble(textTiempoInicialD.getText());
-            velocidad = Double.parseDouble(textVelocidadD.getText());
-            posInicial = Double.parseDouble(textPosInicialD.getText());
+            tiempoInicial = mt.convertirTiempo(Double.parseDouble(textTiempoInicialD.getText()),
+                    comboTiempoInicialD.getSelectionModel().getSelectedItem());
+            tiempoFinal = mt.convertirTiempo(Double.parseDouble(textTiempoFinalD.getText()),
+                    comboTiempoInicialD.getSelectionModel().getSelectedItem());
+            posInicial = ml.convertirLongitud(Double.parseDouble(textPosInicialD.getText()),
+                    comboPosInicialD.getSelectionModel().getSelectedItem());
+            velocidad = mv.convertirVelocidad(Double.parseDouble(textVelocidadD.getText()),
+                    comboVelocidadD.getSelectionModel().getSelectedItem());
             mru = new ModeloMovRecUni(tiempoInicial, tiempoFinal, velocidad, posInicial, 0);
-
-            labelRespuesta.setText(mru.calcularVelocidad() + " m/s");
+            mensaje.mostrar("Distancia calculada. \n" + mru.calcularPosicion()+ "m");
+            labelRespuesta.setText(mru.calcularPosicion()+ " m");
         } catch (Exception e) {
+            mensaje.mostrarError("Debe rellenar todos los campos para continuar.");
         }
     }
 
@@ -191,14 +199,18 @@ public class ControladorMRU implements Initializable {
         double posFinal;
         double velocidad;
         try {
-            posInicial = Double.parseDouble(textPosInicialT.getText());
-            posFinal = Double.parseDouble(textPosFinalT.getText());
-            velocidad = Double.parseDouble(textVelocidadT.getText());
-
+            posInicial = ml.convertirLongitud(Double.parseDouble(textPosInicialT.getText()),
+                    comboPosInicialT.getSelectionModel().getSelectedItem());
+            posFinal = ml.convertirLongitud(Double.parseDouble(textPosFinalT.getText()),
+                    comboPosFinalT.getSelectionModel().getSelectedItem());
+            velocidad = mv.convertirVelocidad(Double.parseDouble(textVelocidadT.getText()),
+                    comboVelocidadT.getSelectionModel().getSelectedItem());
             mru = new ModeloMovRecUni(0, 0, velocidad, posInicial, posFinal);
 
-            labelRespuesta.setText(mru.calcularTiempo() + " m/s");
+            mensaje.mostrar("Distancia calculada. \n" + mru.calcularPosicion()+ "m");
+            labelRespuesta.setText(mru.calcularPosicion()+ " m");
         } catch (Exception e) {
+            mensaje.mostrarError("Debe rellenar todos los campos para continuar.");
         }
     }
 

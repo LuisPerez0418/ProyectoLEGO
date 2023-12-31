@@ -43,4 +43,13 @@ public class ModeloVelocidad {
         resultado = dato * 2.237;
         System.out.println(dato + " * 2.237 = " + resultado);
     }
+    
+    //----- método condicional sistema internacional -----//
+    public double convertirVelocidad(double dato, String unidad){
+        return switch (unidad) {
+            case "km/h" -> kilometroMetro(dato);
+            case "mi/h" -> millaMetro(dato);
+            default -> dato;
+        };
+    }
 }
