@@ -15,6 +15,9 @@ public class ControladorMRUA {
     private AnchorPane anchorPaneMRU;
 
     @FXML
+    private Button buttonCalcular;
+
+    @FXML
     private Button buttonCalcularDistancia;
 
     @FXML
@@ -48,6 +51,9 @@ public class ControladorMRUA {
     private ComboBox<?> comboPosInicialT;
 
     @FXML
+    private ComboBox<?> comboTiempo;
+
+    @FXML
     private ComboBox<?> comboTiempoFinal;
 
     @FXML
@@ -58,6 +64,12 @@ public class ControladorMRUA {
 
     @FXML
     private ComboBox<?> comboTiempoInicialD;
+
+    @FXML
+    private ComboBox<?> comboVelFinal;
+
+    @FXML
+    private ComboBox<?> comboVelInicial;
 
     @FXML
     private ComboBox<?> comboVelocidadD;
@@ -126,6 +138,9 @@ public class ControladorMRUA {
     private TextField textPosInicialT;
 
     @FXML
+    private TextField textTiempo;
+
+    @FXML
     private TextField textTiempoFinal;
 
     @FXML
@@ -136,6 +151,12 @@ public class ControladorMRUA {
 
     @FXML
     private TextField textTiempoInicialD;
+
+    @FXML
+    private TextField textVelFinal;
+
+    @FXML
+    private TextField textVelInicial;
 
     @FXML
     private TextField textVelocidadD;
@@ -160,6 +181,9 @@ public class ControladorMRUA {
 
     @FXML
     void setOnActionButtonLimpiar(ActionEvent event) {
+        textVelFinal.setText("");
+        textVelInicial.setText("");
+        textTiempo.setText("");
 
     }
 

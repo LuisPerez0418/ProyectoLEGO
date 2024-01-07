@@ -1,4 +1,4 @@
-package modelo;
+    package modelo;
 
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;

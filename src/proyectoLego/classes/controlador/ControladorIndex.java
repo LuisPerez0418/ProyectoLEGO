@@ -39,6 +39,8 @@ public class ControladorIndex {
             cargarFXML("/vista/MRU.fxml");
         } else if (selectedTab == tabMRUA) {
             cargarFXML("/vista/MRUA.fxml");
+        } else if (selectedTab == tabCaidaLibre){
+            cargarFXML("/vista/CaidaLibre.fxml");
         }
     }
 

@@ -30,7 +30,7 @@
                         <ComboBox fx:id="comboTiempoInicial" layoutX="238.0" layoutY="168.0" prefHeight="25.0" prefWidth="94.0" promptText="Seleccionar" />
                         <ComboBox fx:id="comboTiempoFinal" layoutX="238.0" layoutY="220.0" prefHeight="25.0" prefWidth="94.0" promptText="Seleccionar" />
                         <Label fx:id="labelRespuesta" layoutX="379.0" layoutY="116.0" />
-                        <Label layoutX="435.0" layoutY="63.0" text="Respuesta" />
+                        <Label layoutX="435.0" layoutY="63.0" text="respuesta" />
                         <Button fx:id="buttonLimpiar" layoutX="238.0" layoutY="264.0" mnemonicParsing="false" onAction="#setOnActionButtonLimpiar" prefHeight="25.0" prefWidth="93.0" text="Limpiar" />
                      </children></AnchorPane>
             </content>
@@ -70,15 +70,35 @@
                         <TextField fx:id="textVelocidadT" layoutX="34.0" layoutY="206.0" prefHeight="25.0" prefWidth="192.0" promptText="0" />
                         <Label fx:id="labelVelocidadT" layoutX="34.0" layoutY="189.0" text="Velocidad" />
                         <Button fx:id="buttonCalcularTiempo" layoutX="34.0" layoutY="264.0" mnemonicParsing="false" onAction="#setOnActionButtonCalcularTiempo" prefHeight="25.0" prefWidth="192.0" text="Calcular" />
-                        <ComboBox fx:id="comboPosInicialT" layoutX="238.0" layoutY="97.0" prefHeight="25.0" prefWidth="94.0" promptText="Seleccionar" />
-                        <ComboBox fx:id="comboPosFinalT" layoutX="238.0" layoutY="150.0" prefHeight="25.0" prefWidth="94.0" promptText="Seleccionar" />
-                        <ComboBox fx:id="comboVelocidadT" layoutX="238.0" layoutY="206.0" prefHeight="25.0" prefWidth="94.0" promptText="Seleccionar" />
+                        <ComboBox fx:id="comboPosInicialT" layoutX="238.0" layoutY="97.0" prefHeight="25.0" prefWidth="108.0" promptText="Seleccionar" />
+                        <ComboBox fx:id="comboPosFinalT" layoutX="238.0" layoutY="150.0" prefHeight="25.0" prefWidth="111.0" promptText="Seleccionar" />
+                        <ComboBox fx:id="comboVelocidadT" layoutX="238.0" layoutY="206.0" prefHeight="25.0" prefWidth="115.0" promptText="Seleccionar" />
                         <Label fx:id="labelRespuestaT" layoutX="379.0" layoutY="116.0" />
                         <Label layoutX="435.0" layoutY="63.0" text="Respuesta" />
-                        <Button fx:id="buttonLimpiarT" layoutX="238.0" layoutY="264.0" mnemonicParsing="false" onAction="#setOnActionButtonLimpiarT" prefHeight="25.0" prefWidth="93.0" text="Limpiar" />
+                        <Button fx:id="buttonLimpiarT" layoutX="238.0" layoutY="264.0" mnemonicParsing="false" onAction="#setOnActionButtonLimpiarT" prefHeight="25.0" prefWidth="113.0" text="Limpiar" />
                      </children>
                   </AnchorPane>
                </content>
+            </Tab>
+            <Tab text="Aceleracion">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="39.0" layoutY="51.0" text="Velocidad Final" />
+                        <TextField fx:id="textVelFinal" layoutX="38.0" layoutY="68.0" prefHeight="25.0" prefWidth="183.0" />
+                        <Label layoutX="39.0" layoutY="98.0" text="Velocidad Inicial" />
+                        <TextField fx:id="textVelInicial" layoutX="37.0" layoutY="116.0" prefHeight="25.0" prefWidth="182.0" />
+                        <TextField fx:id="textTiempo" layoutX="35.0" layoutY="165.0" prefHeight="25.0" prefWidth="181.0" />
+                        <Label layoutX="37.0" layoutY="148.0" text="Tiempo" />
+                        <ComboBox fx:id="comboVelFinal" layoutX="229.0" layoutY="68.0" prefHeight="25.0" prefWidth="125.0" promptText="Seleccionar" />
+                        <ComboBox fx:id="comboVelInicial" layoutX="229.0" layoutY="116.0" prefHeight="25.0" prefWidth="125.0" promptText="Seleccionar" />
+                        <ComboBox fx:id="comboTiempo" layoutX="229.0" layoutY="165.0" prefHeight="25.0" prefWidth="125.0" promptText="Seleccionar" />
+                        <Button fx:id="buttonCalcular" layoutX="37.0" layoutY="220.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="179.0" text="Calcular" />
+                        <Button fx:id="buttonLimpiar" layoutX="229.0" layoutY="220.0" mnemonicParsing="false" onAction="#setOnActionButtonLimpiar" prefHeight="25.0" prefWidth="125.0" text="limpiar" />
+                        <Label layoutX="456.0" layoutY="60.0" text="respuesta" />
+                     </children>
+                  </AnchorPane>
+              </content>
             </Tab>
         </tabs>
       </TabPane>
